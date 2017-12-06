@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e048f9a5-5a69-4910-9fc3-a6654b8f47fe" name="Raspberry HOME" url="http://192.168.178.65">
+        <fileTransfer host="192.168.178.65" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+      <webServer id="6d53591c-9d56-4822-a61f-9e15772b97ad" name="Raspberry WIFI" url="http://192.168.2.1">
+        <fileTransfer host="192.168.2.1" port="22" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
