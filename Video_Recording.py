@@ -3,12 +3,18 @@ import numpy as np
 import cv2
 from random import randint
 
-cap = cv2.VideoCapture(1 )
+cap = cv2.VideoCapture(1)
+cap.set(3,1280) # shows no effect
+cap.set(4,720) # shows no effect
+frame_width = int(cap.get(3))
+frame_height = int(cap.get(4))
+
+
 
 # Define the codec and create VideoWriter object
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
 vid_name = 'Video_Saves/output_' + str(randint(0,30000000))+ '.avi'
-out = cv2.VideoWriter(vid_name,fourcc, 20.0,(640,480))
+out = cv2.VideoWriter(vid_name,fourcc, 20.0,(frame_width,frame_height))
 
 while(cap.isOpened()):
     ret, frame = cap.read()
