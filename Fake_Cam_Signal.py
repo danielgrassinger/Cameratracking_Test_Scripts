@@ -2,17 +2,23 @@
 Sends af fake signal that two tools were taken out of the toolbox and returned after a few seconds
 @author Daniel Grassinger
 '''
+
 from time import sleep
 import requests
 
+SERVER_IP = 'localhost';
+SERVER_PORT = 8000
+
+REMOTE_SCRIPT_PATH = '/cgi-bin/DB_RequestHandler.py'
+
 def takenFromToolbox(id):
-    command = 'http://localhost:8000/cgi-bin/DB_RequestHandler.py?command=takeTool&id='+ str(id)
+    command = 'http://' + str(SERVER_IP) + ':' + str(SERVER_PORT) + str(REMOTE_SCRIPT_PATH) +'?command=takeTool&id='+ str(id)
     r = requests.get(command)
     print(r.status_code)
     print(r.text)
 
 def retrunedToToolbox(id):
-    command = 'http://localhost:8000/cgi-bin/DB_RequestHandler.py?command=returnTool&id=' + str(id)
+    command = 'http://' + str(SERVER_IP) + ':' + str(SERVER_PORT) + str(REMOTE_SCRIPT_PATH) +'?command=returnTool&id='+ str(id)
     r = requests.get(command)
     print(r.status_code)
     print(r.text)
