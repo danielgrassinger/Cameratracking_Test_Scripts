@@ -17,7 +17,7 @@ def takenFromToolbox(id):
     print(r.status_code)
     print(r.text)
 
-def retrunedToToolbox(id):
+def returnedToToolbox(id):
     command = 'http://' + str(SERVER_IP) + ':' + str(SERVER_PORT) + str(REMOTE_SCRIPT_PATH) +'?command=returnTool&id='+ str(id)
     r = requests.get(command)
     print(r.status_code)
@@ -28,11 +28,11 @@ def main():
 
     takenFromToolbox(12)
     sleep(3)
-    retrunedToToolbox(12)
+    returnedToToolbox(12)
 
     takenFromToolbox(11)
     sleep(5)
-    retrunedToToolbox(11)
+    returnedToToolbox(11)
 
 if __name__ == "__main__":
     main()
