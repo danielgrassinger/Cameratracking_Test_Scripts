@@ -104,16 +104,16 @@ while not cv2.waitKey(1) & 0xFF == ord('q'):
     saturation = cv2.getTrackbarPos('Saturation', 'image')
     value = cv2.getTrackbarPos('Value', 'image')
 
-    lower_blue = np.array([hue_min, saturation, value])
-    upper_blue = np.array([hue_max, 255, 255])
+    lower_blue = np.array([hue_min,100, 100])
+    upper_blue = np.array([hue_max, saturation, value])
     # Threshold the HSV image to get only blue colors
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
     # Bitwise-AND mask and original image
     res = cv2.bitwise_and(img, img, mask=mask)
-
-    keypoints = find_Blobs(res)
-    result = cv2.drawKeypoints(res, keypoints, np.array([]), (0, 0, 255),
-                                           cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+    result = res
+    #keypoints = find_Blobs(res)
+    #result = cv2.drawKeypoints(res, keypoints, np.array([]), (0, 0, 255),
+     #                                      cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
     cv2.rectangle(result, (ix, iy), (nx, ny), (0, 255, 0), 1)
 
 

@@ -44,9 +44,10 @@ while not cv2.waitKey(1) & 0xFF == ord('q'):
     res = cv2.bitwise_and(img, img, mask=mask)
     res = np.array(img)
     gray = cv2.cvtColor(res, cv2.COLOR_BGR2GRAY)
+
     edges = cv2.Canny(gray, 50, 150, apertureSize=3)
 
-    lines = cv2.HoughLines(edges, 1, np.pi / 180, 180)
+    lines = cv2.HoughLines(edges, 1, np.pi / 180, 200)
     try:
         for line in lines:
             for rho, theta in line:
