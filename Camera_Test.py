@@ -99,7 +99,7 @@ def main():
     root.title('Camera_Test')
     # root.geometry('900x700')
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     cap.set(10,0.3)
     cap.set(11,0.3)
     save_image_button = Button(root, text='Bild speichern', command=partial(save_image, queue))
