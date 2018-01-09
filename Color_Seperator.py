@@ -83,7 +83,7 @@ cv2.setTrackbarPos('Value','image',1)
 
 
 #cv2.imshow('ref',img)
-cap = cv2.VideoCapture('saves/video_3.avi')
+cap = cv2.VideoCapture('saves/video_4.avi')
 cv2.setMouseCallback('image',draw_circle)
 play = True
 while not cv2.waitKey(1) & 0xFF == ord('q'):
@@ -94,7 +94,8 @@ while not cv2.waitKey(1) & 0xFF == ord('q'):
             play = True
         print('play')
     if(play):
-        ret,img = cap.read()
+        ret, img = cap.read()
+
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # define range of blue color in HSV
 

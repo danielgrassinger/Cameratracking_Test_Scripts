@@ -27,7 +27,7 @@ cap = cv2.VideoCapture('saves/video_3.avi')
 img = cv2.blur(img,(5,5))
 
 while not cv2.waitKey(1) & 0xFF == ord('q'):
-    #ret, img = cap.read()
+    ret, img = cap.read()
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     # define range of blue color in HSV
 
@@ -47,11 +47,13 @@ while not cv2.waitKey(1) & 0xFF == ord('q'):
     im = np.array(img)
 
     edged = cv2.Canny(res, 30, 110)
+    #edged = mask
     im2, contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cont = np.array(img)
     cont[:,:,:]=0
     cv2.drawContours(cont, contours, -1, (0, 255, 0), 3)
     edged2 = cv2.Canny(cont, 30, 150)
+    edged2 = mask
     im2, contours, hierarchy = cv2.findContours(edged2, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = sorted(contours, key=cv2.contourArea, reverse=True)[:3]
     cv2.drawContours(im, contours, -1, (0, 255, 0), 2)
